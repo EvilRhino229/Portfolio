@@ -1,3 +1,5 @@
-* {
+*, body, div {
   text-align: center;
+  background-color: black;
+  color: red;
 }
