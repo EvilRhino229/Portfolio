@@ -10,6 +10,11 @@
   </head>
 
   <body>
+      <a href="/users/sign_in" class="ml-3 inline-block text-md px-4 py-2 leading-none border rounded text-white border-white mt-2 lg:mt-0">Login</a>
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete,class: "ml-3 inline-block text-md px-4 py-2 leading-none borderrounded text-white border-white  mt-2 lg:mt-0") %>
+      <% end %>
     <%= yield %>
+    <footer><div id='loadtime' style="font-size: 12px;"><script>document.getElementById('loadtime').innerHTML = "loaded in " + (window.performance.timing.loadEventEnd - window.performance.timing.navigationStart) + " ms"</script></div></footer>
   </body>
 </html>
