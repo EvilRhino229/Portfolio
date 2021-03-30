@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '' => "static_pages#home"
+  get '/experiences' => 'experiences#index'
+  get '/experiences/new' => 'experiences#new'
+  post '/' => 'experiences#create'
+  delete '/experiences/:id' => 'experiences#destroy'
   get '/admin_dashboard' => 'users#admin_dash'
 
 end

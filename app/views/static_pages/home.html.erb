@@ -23,12 +23,14 @@
 </details>
 <br>
 <h2>Relevant history:</h2>
-<details><summary>Developer @ Main Street Codes Foundation ( <a href="http://mainstreetcodes.com">=></a> )</p></summary>
-<p>Built Rails apps for clients as part of a fully-remote asynchronous team</p></details>
 <details><summary>Student @ Main Street Codes, Spring 2019 cohort</summary>
 <p>Here I learned the basics of building versatile Ruby on Rails apps, DB management with Postico and Rails, jQuery, and API integration</p></details>
 <details><summary>Student @ Kenzie Academy, April 2020 cohort</summary>
 <p>Intensive training with React, Node, Python, and Django</p></details>
 
+<h1><%= link_to "Professional experience:", "/experiences/" %></h1>
+
+<% if user_signed_in? && current_user.admin? %>
 <h5>super secret <a href="/admin_dashboard">admin</a> access here</h5>
 </div>
+<% end %>

@@ -1,0 +1,19 @@
+<% if @experiences %>
+<% @experiences.each do |experience| %>
+  <div class="experiencesection">
+    <div class="body">
+      <h3><%= experience.expname %></h3>
+      <p><%= experience.title %></p>
+      <p><%= experience.description %></p>
+      <h6><%= experience.years %> year(s)</h6>
+    <br>
+    </div>
+    <% if user_signed_in? && current_user.admin? %>
+    <%= link_to("Click to remove experience.", "/experiences/#{experience.id}", method: :delete, data: {confirm: "Deleting #{experience.expname}"}, class: "btn btn-danger")%>
+    <% end %>
+  </div>
+<% end %>
+<% else %>
+  <h3>There was supposed to be something here. Hmm...</h3>
+  <h6>Error: each loop unable to initiate</h6>
+<% end %>
