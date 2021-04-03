@@ -17,3 +17,6 @@
   <h3>There was supposed to be something here. Hmm...</h3>
   <h6>Error: each loop unable to initiate</h6>
 <% end %>
+<% if user_signed_in? && current_user.admin? %>
+<%= link_to("Click to add", "/experiences/new", class: "btn btn-info") %>
+<% end %>

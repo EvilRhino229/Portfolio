@@ -1,0 +1,25 @@
+<% if @studies %>
+<% @studies.each do |study| %>
+  <div class="studiesection">
+    <div class="body">
+      <h3><%= study.acaname %></h3>
+      <p><%= study.location %></p>
+      <p><%= study.focus %></p>
+      <p><%= study.degree %></p>
+      <p><%= study.startdate %></p>
+      <p><%= study.enddate %></p>
+      <p><%= study.description %></p>
+    <br>
+    </div>
+    <% if user_signed_in? && current_user.admin? %>
+    <%= link_to("Click to remove study.", "/studies/#{study.id}", method: :delete, data: {confirm: "Deleting #{study.acaname}"}, class: "btn btn-danger") %><br>
+    <% end %>
+  </div>
+<% end %>
+<% else %>
+  <h3>There was supposed to be something here. Hmm...</h3>
+  <h6>Error: each loop unable to initiate</h6>
+<% end %>
+  <% if user_signed_in? && current_user.admin? %>
+  <%= link_to("Click to add", "/studies/new", class: "btn btn-info") %>
+  <% end %>

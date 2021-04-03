@@ -3,10 +3,17 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '' => "static_pages#home"
+  # experience
   get '/experiences' => 'experiences#index'
   get '/experiences/new' => 'experiences#new'
-  post '/' => 'experiences#create'
+  post '/experiences' => 'experiences#create'
   delete '/experiences/:id' => 'experiences#destroy'
+  # study
+  get '/studies' => 'studies#index'
+  get '/studies/new' => 'studies#new'
+  post '/studies' => 'studies#create'
+  delete '/studies/:id' => 'studies#destroy'
+  # admin panel
   get '/admin_dashboard' => 'users#admin_dash'
 
 end
