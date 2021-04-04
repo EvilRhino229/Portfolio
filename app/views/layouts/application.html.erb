@@ -11,7 +11,7 @@
 
   <body>
       <% if not current_page?('/') %>
-      <button><a href="/">Home</a></button>
+      <a href="/" class="ml-3 inline-block text-md px-4 py-2 leading-none border rounded text-white border-white mt-2 lg:mt-0">Home</a>
       <% end %>
       <% if user_signed_in? == false %>
       <a href="/users/sign_in" class="ml-3 inline-block text-md px-4 py-2 leading-none border rounded text-white border-white mt-2 lg:mt-0">Login</a>
