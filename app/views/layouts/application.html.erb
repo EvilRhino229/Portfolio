@@ -21,6 +21,18 @@
       <% end %>
     <%= flash_messages %>
     <%= yield %>
-    <footer><div id='loadtime' style="font-size: 12px;"><script>if (window.performance.timing.loadEventEnd > 0) document.getElementById('loadtime').innerHTML = "loaded in " + (window.performance.timing.loadEventEnd - window.performance.timing.navigationStart) + " ms"</script></div></footer>
+    <footer>
+      <% if not current_page?('/about/') %>
+      <a href="/about/">About</a>
+      <% end %>
+      <% if not current_page?('/about/') and not current_page?('/contact/') %>
+       | 
+      <% end %>
+       <% if not current_page?('/contact/') %>
+       <a href="/contact/">Contact</a>
+       <% end %>
+      <div id='loadtime' style="font-size: 12px;"><script>if (window.performance.timing.loadEventEnd > 0) document.getElementById('loadtime').innerHTML = "loaded in " + (window.performance.timing.loadEventEnd - window.performance.timing.navigationStart) + " ms"</script></div>
+      <p style="padding-top: 5px; font-size: 12px;">Today's date: <%= Date.today.strftime("%B %d, %Y") %></p>
+    </footer>
   </body>
 </html>

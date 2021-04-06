@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # static pages
   get '' => "static_pages#home"
+  get '/about' => "static_pages#about"
+  get '/contact' => "static_pages#contact"
+  post '/send_message' => 'static_pages#send_message'
+
   # experience
   get '/experiences' => 'experiences#index'
   get '/experiences/new' => 'experiences#new'
