@@ -30,6 +30,27 @@ class ExperiencesController < ApplicationController
     end
   end
 
+    def edit
+    @experience = Experience.find(params[:id])
+  end
+
+  def update
+    @experience = Experience.find(params[:id])
+    if @experience.update(
+                  expname: params[:expname],
+                  title: params[:title],
+                  description: params[:description],
+                  years: params[:years],
+      )
+      flash[:notice] = "Experience edited"
+      redirect_to "/studies/"
+    else
+      flash[:error] = "That didn't work."
+      render 'edit'
+    end
+  end
+
+
   def destroy
     @experience = Experience.find(params[:id])
     @experience.destroy

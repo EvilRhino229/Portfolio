@@ -11,11 +11,15 @@ Rails.application.routes.draw do
   get '/experiences' => 'experiences#index'
   get '/experiences/new' => 'experiences#new'
   post '/experiences' => 'experiences#create'
+  get '/experiences/:id/edit' => 'experiences#edit'
+  put '/experiences/:id' => 'experiences#update'
   delete '/experiences/:id' => 'experiences#destroy'
   # study
   get '/studies' => 'studies#index'
   get '/studies/new' => 'studies#new'
   post '/studies' => 'studies#create'
+  get '/studies/:id/edit' => 'studies#edit'
+  put '/studies/:id' => 'studies#update'
   delete '/studies/:id' => 'studies#destroy'
   # admin panel
   get '/admin_dashboard' => 'users#admin_dash'

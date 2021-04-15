@@ -4,9 +4,7 @@
     <div class="body">
       <h3><%= study.acaname %></h3>
       <p><%= study.location %></p>
-      <% if study.focus != nil %>
       Major or concentration: <p><%= study.focus %></p>
-      <% end %>
       Type of degree: <p><%= study.degree %></p>
       Started: <p><%= study.startdate %></p>
       Completed: <p><%= study.enddate %></p>
@@ -15,6 +13,7 @@
     </div>
     <% if user_signed_in? && current_user.admin? %>
     <%= link_to("Click to remove study.", "/studies/#{study.id}", method: :delete, data: {confirm: "Deleting #{study.acaname}"}, class: "btn btn-danger") %><br>
+  <%= link_to("Click to edit", "/studies/#{study.id}/edit", class: "btn btn-warning") %>
     <% end %>
   </div>
 <% end %>
