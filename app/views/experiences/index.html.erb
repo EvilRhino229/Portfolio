@@ -2,16 +2,13 @@
 <% @experiences.each do |experience| %>
   <div class="experiencesection">
     <div class="body">
-      <h3><%= experience.expname %></h3>
+      <!-- <h3><%= experience.expname %></h3> -->
+      <%= link_to("#{experience.expname}", "/experiences/#{experience.id}") %>
       <p><%= experience.title %></p>
       <p><%= experience.description %></p>
       <h6><%= experience.years %> year(s)</h6>
     <br>
     </div>
-    <% if user_signed_in? && current_user.admin? %>
-    <%= link_to("Click to remove experience.", "/experiences/#{experience.id}", method: :delete, data: {confirm: "Deleting #{experience.expname}"}, class: "btn btn-danger")%>
-    <%= link_to("Click to edit experience.", "/experiences/#{experience.id}/edit", class: "btn btn-warning") %>
-    <% end %>
   </div>
 <% end %>
 <% else %>

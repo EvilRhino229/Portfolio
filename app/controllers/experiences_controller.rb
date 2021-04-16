@@ -23,14 +23,18 @@ class ExperiencesController < ApplicationController
                   )
     if @experience.save
       flash[:success] = "Experience added!"
-      redirect_to "/"
+      redirect_to "/experiences/#{@experience.id}"
     else
       flash[:error] = "Oops."
       render 'new'
     end
   end
 
-    def edit
+  def edit
+    @experience = Experience.find(params[:id])
+  end
+
+  def show
     @experience = Experience.find(params[:id])
   end
 
@@ -43,7 +47,7 @@ class ExperiencesController < ApplicationController
                   years: params[:years],
       )
       flash[:notice] = "Experience edited"
-      redirect_to "/studies/"
+      redirect_to "/experiences/#{@experience.id}"
     else
       flash[:error] = "That didn't work."
       render 'edit'

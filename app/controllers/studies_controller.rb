@@ -25,11 +25,15 @@ class StudiesController < ApplicationController
                   )
     if @study.save
       flash[:success] = "Study added!"
-      redirect_to "/"
+      redirect_to "/studies/#{@study.id}"
     else
       flash[:error] = "Error(s) encountered. See below"
       render 'new'
     end
+  end
+
+  def show
+    @study = Study.find(params[:id])
   end
 
   def edit
@@ -48,7 +52,7 @@ class StudiesController < ApplicationController
               description: params[:description],
       )
       flash[:notice] = "Study edited"
-      redirect_to "/studies/"
+      redirect_to "/studies/#{@study.id}"
     else
       flash[:error] = "That didn't work."
       render 'edit'
